@@ -30,6 +30,11 @@ Next n line contain m integers each representing the garden matrix.
 Output Format:
 For each test case print in a new line the shortest amount of time required to water all the grass in the garden. If not possible to water all the garden print -1.
 
+Constraints:
+	1 < T <10^4
+	1 < n <10^4
+	1 < m <10^4
+
 Sample Test Case 1:
 1
 2 3

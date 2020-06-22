@@ -1,0 +1,67 @@
+Problem Statement:
+Mr. Joe is very fond of watering his very special garden. But he is also very lazy. Being a mechanical engineer he is trying to put automated water pumps in his garden in different locations. Let's consider his garden to be a reactangle matrix of n * m. Where n is the number of rows and m is the number of columns. 
+
+As mentioned his garden is not a normal garden. His garden consists of following objects :
+
+* meaning a grass patch
+
+_ meaning a water pump
+
+# meaning a cement patch
+
+% meaning a sand patch
+
+Grass allows water to seep through it's 8 adjacent neighbours which are top-left, top, top-right, right, bottom-right, bottom, bottom-left, left. Water continues to seep as a chain reaction to neighbour of neighbours.
+
+Pump pumps water only to it's 4 adjacent neighbours which are top, right, bottom, left.
+
+Sand allows water only to it's 8 adjacent neighbours and no chain reaction. for eg: if water comes on sand patch it would only seep through it's 8 adjacent neighbours but after that no spread. It stops on it's neighbours.
+
+Cement being impermiable does not allow water to seep through any of it's neighbours
+
+Mr. Joe wants you to help him find out the shortest amount of time required to water all his grass with the current places of pumps he has put. You may assume that it takes 1 unit of time for water to pass from one patch to another. If it is not possible to water all grass print -1 .
+
+
+Input Format:
+First line contains T: number of test cases
+Next Line contains two integers 'n' and 'm' representing number of rows and columns in garden.
+Next n line contain m integers each representing the garden matrix.
+
+Output Format:
+For each test case print in a new line the shortest amount of time required to water all the grass in the garden. If not possible to water all the garden print -1.
+
+Sample Test Case 1:
+1
+2 3
+**_
+#**
+
+Sample Output 1:
+2
+
+Explaination:
+Water starts at 0 unit time from pump at (0,2) cell
+At 1 unit time it seeps to left and bottom grass at (0,1) and (1,2)
+At 2 unit time water seeps from (0,1) to left grass at (0,0) and bottom grass (1,1)
+
+So it takes 2 unit time to seep water to all grass in garden
+
+Sample Test Case 2:
+1
+4 4
+_*%_
+%###
+#**#
+###%
+
+Sample Output 2:
+-1
+
+Explaination:
+Water starts at 0 unit time from pumps at (0,0) and (0,3)
+At 1 unit time: It seeps to grass at (0,1) and sand at (1,0) from pump at (0,0)
+				It seeps to sand at (0,2) from pump at (0,3)
+At 2 unit time: Water from sand at (1,0) seeps to grass at (2,1) and stops after that because water from sand patch only seeps to it's neighbours.
+
+Therefore no water is available for grass at (2,2) from any pump.
+Hence output -1 as all grass does not get water

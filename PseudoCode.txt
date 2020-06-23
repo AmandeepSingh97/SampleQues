@@ -1,0 +1,29 @@
+Steps:
+
+1) Take input
+2) Form a visited matrix to track time at which cell of matrix was visited (initially all cells are -1 i.e) not visited.
+3) Form a queue for BFS
+4) Push all cells which are pumps into the queue and put their time as 0 which is start time
+5) Till we have cells in queue:
+	Pop a cell
+	Check if it is pump:
+		Water it's 4 adjacent neighbours and push them in the queue if it is grass or sand
+	Check if it is grass:
+		Water it's 8 adjacent neighbours and push them in the queue if it is grass or sand
+	Check if it is sand:
+		Water it's 8 adjacent neighbours if it is grass, do not push any adjacent in queue because water stops at neighbours for sand.
+6) When each cell you add in queue also update the time in visited matrix as time of parent + 1
+	parent here is the node which waters it
+7) At last check the visited matrix and for all grass check the max time and store max in a variable
+   Also check if all grass is visited, if any grass still has -1 then output -1 as all grass cannot be watered from current position of pumps.
+
+
+
+Hints:
+
+1) All cells of matrix be considered as nodes in a graph with different type of connection:
+   For pumps it has connection to adjacent 4 cells
+   For grass and sand they have connection to their 8 adjacent cells
+   For cement no connection to any neighbour cell
+
+2) Use multi source BFS with source points being all the pumps in the matrix
